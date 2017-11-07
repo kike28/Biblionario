@@ -3,134 +3,146 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>JB</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    
+	<title>QUIEN QUIERE SER SABIO</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
 </head>
 <body>
-
-       <!--
-        <div id="app">
-                <button v-on:click="play" type="button">Click Me to Play Sound</button>
-                <audio ref="audioElm" src="mp3/main.mp3"></audio>
-
-
-
-                <div  id="limpiarsesion"  class="col s12 center-align">
-                        <a href="#" v-on:click="play" class="waves-effect waves-light btn ">limpiar sesion</a>
-                        <audio ref="audioElm" src="mp3/main.mp3"></audio>
-                </div>
-
-              </div>
-
-              https://es-vuejs.github.io/vuejs.org/v2/guide/installation.html
-            -->
-              
-
-
-    <div id="main" class="row container">
-        <div id="game" class="col s10">
-            <div id="encabezado" class="row">
-                <div id="logo" class="col s3">
-                    <img class="responsive-img circle" src="http://ximg.es/100x100/000/fff" alt="">
-                </div>
-                <div class="col s9">
-                    <div id="comodines" class="row">
-                        <div id="retirarse" class="col s3"><i class="medium material-icons">thumb_down</i></div>
-                        <div id="biblia" class="col s3"><i class="medium material-icons">library_books</i></div>
-                        <div id="publico" class="col s3"><i class="medium material-icons">public</i></div>
-                        <div id="cincuenta" class="col s3"><i class="medium material-icons">toc</i></div>
-                    </div>
-                </div>
+	<div class="game-history" "></div>
+       <div class="game-wrapper">
+        <div id="logs" ></div>
+        <div id="game">
+          <div id="header">
+            <div class="logo"></div><!-- /.logo -->
+            <div class="comodines">          
+                <ul>
+                    <li id="comd_cincuenta"><a href="#"></a></li>    
+                    <li id="comd_publico"><a href="#"></a></li>    
+                    <li id="comd_biblia"><a href="#"></a></li>
+                    <li id="retirarse"><a href="#"></a></li>      
+                </ul>
             </div>
-            <div id="playground" class="row">
-                <div class="col s12 ">
-                    <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-                            <span class="card-title">PREGUNTA</span>
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6">
-                    <div class="card blue-grey darken-1 hoverable">
-                        <div class="card-content white-text">
-                            <span class="card-title">Respuesta A</span>
-                            <p>I am a very simarkup to use effectively.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6">
-                    <div class="card blue-grey darken-1 hoverable">
-                        <div class="card-content white-text">
-                            <span class="card-title">Respuesta B</span>
-                            <p>I am a very simarkup to use effectively.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6">
-                    <div class="card blue-grey darken-1 hoverable">
-                        <div class="card-content white-text">
-                            <span class="card-title">Respuesta C</span>
-                            <p>I am a very simarkup to use effectively.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col s6">
-                    <div class="card blue-grey darken-1 hoverable">
-                        <div class="card-content white-text">
-                            <span class="card-title">Respuesta D</span>
-                            <p>I am a very simarkup to use effectively.</p>
-                        </div>
-                    </div>
-                </div>
-                <div id="Respuestaboton" class="col s12 center-align">
-                        <a class="waves-effect waves-light btn">Revelar Respuesta</a>
-                </div>
+          </div>
+        <div class="playground">
+            <p id="question">
+            <span>Cargando datos..</span>
+            </p>
+            <ul id="answers">
+                <li>
+                    <a href="#">
+                    <span class="bullet">A:</span> 
+                    <span class="answer-text"></span>
+                    </a>
+              </li>
+              <li>
+                    <a href="#">
+                    <span class="bullet">B:</span> 
+                    <span class="answer-text"></span>
+                    </a>
+              </li>
+              <li>
+                    <a href="#">
+                    <span class="bullet">C:</span> 
+                    <span class="answer-text"></span>
+                    </a>
+              </li>
+              <li>
+                    <a href="#">
+                    <span class="bullet">D:</span> 
+                    <span class="answer-text"></span>
+                    </a>
+                </li>   
+            </ul>
+            <div id="action">
+            	<a id="action-link" data-action="reveal" href="#">Revelar respuesta</a>            
             </div>
-        </div>  
-        <div id="aside" class="col s2">
-            <div id="puntaje" class="row">
-                <ul class="collection">
-                    <li class="collection-item center-align">100.000</li>
-                    <li class="collection-item center-align">50.000</li>
-                    <li class="collection-item center-align">25.000</li>
-                    <li class="collection-item center-align">12.500</li>
-                    <li class="collection-item center-align">6.400</li>
-                    <li class="collection-item center-align">3.200</li>
-                    <li class="collection-item center-align">1.600</li>
-                    <li class="collection-item center-align">800</li>
-                    <li class="collection-item center-align">400</li>
-                    <li class="collection-item center-align">200</li>
-                    <li class="collection-item center-align">100</li>
-                    <li class="collection-item center-align">50</li>
-                    <li class="collection-item center-align">30</li>
-                    <li class="collection-item center-align">20</li> 
-                    <li class="collection-item center-align active">10</li> 
-                </ul>  
-            </div>    
-            <div class="row">
-                <div  id="limpiarsesion"  class="col s12 center-align">
-                    <a href="#" v-on:click="play" class="waves-effect waves-light btn ">limpiar sesion</a>
-                    <audio ref="audioElm" src="mp3/main.mp3"></audio>
-                </div>
-                        
-            </div>
-        </div>
-                    
+        </div>      
+    </div>
+    <div id="aside">
+        <ul>
+            <li><em>100.000</em></li>
+            <li>50.000</li>
+            <li>25.000</li>
+            <li>12.500</li>
+            <li>6.400</li>
+            <li><em>3.200</em></li>
+            <li>1.600</li>
+            <li>800</li>
+            <li>400</li>
+            <li>200</li>
+            <li><em>100</em></li>
+            <li>50</li>
+            <li>30</li>
+            <li>20</li>
+            <li class="up">10</li>
+        </ul>
     </div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="https://unpkg.com/vue"></script>
-    <script src="js/main.js"></script>
-    <script type="text/javascript" src="question.js"></script>
+    <a href="#" id="reset"></a>
 
-    <!--Este es un comentario-->
-    
-    
+</div><!-- /.game-wrapper -->
+
+<div id="dialog_comd_biblia" class="window">
+    <h2>Comodín Bíblico</h2>    
+    <span id="timer">--</span>    
+    <p>Dispone de <strong>30</strong> segundos para hacer uso de su pista.</p>
+    <p>Podrá utilizar la Biblia o el Libro indicado deacuerdo a la pista.</p>
+    <h3>PISTA:</h3>
+    <em id="hint">
+    PREPARATE PORQUE YA VIENE LA PISTA</em>
+    <a href="#"class="close">Cerrar ventana</a>
+</div><!-- /#dialog_comd_biblia -->
+
+<div id="dialog_comd_publico" class="window">
+    <h2>Comodín del Público</h2>
+    <p>Pida a los participantes que levanten la mano votando una de las cuatro posibles respuestas a la pregunta.</p>
+    <a href="#"class="close">Cerrar ventana</a>
+</div><!-- /#dialog_comd_publico -->
+
+<div id="dialog_winner" class="window">
+    <h2>Felicidades es usted un Sabio de la Biblia</h2>
+    <p>El jugador ha contestado correctamente todas las <strong>15</strong> pregutnas y ha obtenido los <strong>100.000</strong> puntos por lo tanto ha ganado el juego:<br><br>
+    <em>Eres un SABIO y MASTER de la BIBLIA, no muchos han logrado llegar hasta este punto.<br>La Sociedad de Jóvenes de la Iglesia la Aurora
+    se complace en otorgarle el premio mayor por su esfuerzo y estudio de la Palabra de Dios. <br>Que Dios le siga Bendiciendo!</em></p>    
+    <a href="#"class="close">Cerrar ventana</a>
+</div><!-- /#dialog_winner -->
+
+<div id="dialog_loose" class="window">
+    <h2>Respuesta Incorrecta</h2>
+    <p>El jugador ha contestado incorrectamente por lo tanto sale del juego:<br><br>
+    <em>Le instamos a estudiar más su Biblia para la próxima ocación, Bendiciones!</em></p>    
+    <p><strong>Preguntas acertadas: <span class="total_answers">0</span></strong></p>
+    <p><strong>Puntos objetinos: <span class="points">0</span></strong></p>
+    <a href="index.html"class="close">Próximo participante</a> <br> <a href="#"class="close">Terminar juego</a>
+</div><!-- /#dialog_loose -->
+
+<div id="dialog_retirarse" class="window">
+    <h2>Retirada</h2>
+    <p>El jugador ha decidido retirarse del juego con el siguiente puntaje:</p>
+    <p><strong>Preguntas acertadas: <span class="total_answers">0</span></strong></p>
+    <p><strong>Puntos objetinos: <span class="points">0</span></strong></p>
+    <a href="#"class="close">Cerrar ventana</a>
+</div><!-- /#dialog_retirarse -->
+
+<div id="dialog_start" style="text-align: center;" class="window">
+	<div class="logo" style="margin: 5px auto; float: none;"></div><!-- /.logo -->
+    <p>Producido por: <br /><strong>Sociedad de Jóvenes <br />Iglesia Adventista <br />La Aurora De Heredia</strong><br>Año 2009</p>
+    <a href="#"class="start-game">EMPEZAR JUEGO</a>
+</div><!-- /#dialog_retirarse -->
+
+
+
+<!-- Mask to cover the whole screen -->
+<div id="mask"></div>
+
+
+<!-- Mask to cover the whole screen -->
+<div id="mask"></div>
+ 
+
+<script>
+
+
+
+</script>
 </body>
 </html>
