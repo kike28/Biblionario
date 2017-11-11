@@ -24,7 +24,8 @@ nivel1 = [
         "correcta": false
       }
     ],
-    "pista": "Puedes utilizar tu Biblia para buscar la respuesta en la cita Genesis Capitulo 6 entre los versiculos 1 al 20"
+    "pista": "Puedes utilizar tu Biblia para buscar la respuesta en la cita Genesis Capitulo 6 entre los versiculos 1 al 20",
+    "utilizada":false
   },
   {
     "id": 2,
@@ -51,7 +52,8 @@ nivel1 = [
         "correcta": false
       }
     ],
-    "pista": "Puedes utilizar la Biblia para buscar esta respuesta entre Génesis Capítulo 3 y Capítulo 4."
+    "pista": "Puedes utilizar la Biblia para buscar esta respuesta entre Génesis Capítulo 3 y Capítulo 4.",
+    "utilizada":false
   }
 ]
     

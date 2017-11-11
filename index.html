@@ -47,44 +47,43 @@
                     <div class="card blue-grey darken-1">
                         <div class="card-content white-text">
                             <span class="card-title">PREGUNTA</span>
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.</p>
+                            <p> {{ pregunta.pregunta }} </p>
                         </div>
                     </div>
                 </div>
                 <div class="col s6">
-                    <div class="card blue-grey darken-1 hoverable">
+                    <div @click="seleccionRespuesta(0)" class="card blue-grey darken-1 hoverable cursor">
                         <div class="card-content white-text">
                             <span class="card-title">Respuesta A</span>
-                            <p>I am a very simarkup to use effectively.</p>
+                            <p> {{ respuestas[0].respuesta }} </p>
                         </div>
                     </div>
                 </div>
                 <div class="col s6">
-                    <div class="card blue-grey darken-1 hoverable">
+                    <div @click="seleccionRespuesta(1)" class="card blue-grey darken-1 hoverable cursor">
                         <div class="card-content white-text">
                             <span class="card-title">Respuesta B</span>
-                            <p>I am a very simarkup to use effectively.</p>
+                            <p> {{ respuestas[1].respuesta }} </p>
                         </div>
                     </div>
                 </div>
                 <div class="col s6">
-                    <div class="card blue-grey darken-1 hoverable">
+                    <div @click="seleccionRespuesta(2)" class="card blue-grey darken-1 hoverable cursor">
                         <div class="card-content white-text">
                             <span class="card-title">Respuesta C</span>
-                            <p>I am a very simarkup to use effectively.</p>
+                            <p> {{ respuestas[2].respuesta }} </p>
                         </div>
                     </div>
                 </div>
                 <div class="col s6">
-                    <div class="card blue-grey darken-1 hoverable">
+                    <div @click="seleccionRespuesta(3)" class="card blue-grey darken-1 hoverable cursor">
                         <div class="card-content white-text">
                             <span class="card-title">Respuesta D</span>
-                            <p>I am a very simarkup to use effectively.</p>
+                            <p> {{ respuestas[3].respuesta }} </p>
                         </div>
                     </div>
                 </div>
-                <div id="Respuestaboton" class="col s12 center-align">
+                <div id="Respuestaboton" class="col s12 center-align cursor" @click="revelarRespuesta()">
                         <a class="waves-effect waves-light btn">Revelar Respuesta</a>
                 </div>
             </div>
@@ -117,14 +116,14 @@
                         
             </div>
         </div>
-                    
+        <!-- {{$data | json}}              -->
     </div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="question.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="js/main.js"></script>
-    <script type="text/javascript" src="question.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <!--Este es un comentario-->
     

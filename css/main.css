@@ -2,6 +2,9 @@ body{
     background: rgb(209, 209, 209);
     padding: 35px;
 }
+.cursor{
+    cursor:pointer;
+}
 /*#main{
     margin: 40px;
 }*/
