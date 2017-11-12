@@ -19,14 +19,16 @@ var app = new Vue({
       },
 
       seleccionRespuesta: function(resp){
+        
         if(this.pregunta.respuestas[resp].correcta == true){
           this.respCorrecta = true;
           this.indice = resp;
+          this.marcarRespuesta(resp);
           // alert(`La respuesta es Correcta ${this.respCorrecta}`);
         } else{
           this.respCorrecta = false
           // alert(`Te equivocaste necesitas Leer mas Biblia ${this.respCorrecta}`);
-
+          this.marcarRespuesta(resp);
         }
         
 
@@ -42,6 +44,29 @@ var app = new Vue({
         }
 
 
+      },
+
+      marcarRespuesta: function(num){
+        document.getElementById('respuesta1').classList.remove('activo');
+        document.getElementById('respuesta2').classList.remove('activo');
+        document.getElementById('respuesta3').classList.remove('activo');
+        document.getElementById('respuesta4').classList.remove('activo');
+        switch((num+1)){
+          case 1:
+          document.getElementById('respuesta1').classList.add('activo');
+          break;
+          case 2:
+          document.getElementById('respuesta2').classList.add('activo');
+          break;
+          case 3:
+          document.getElementById('respuesta3').classList.add('activo');
+          break;
+          case 4:
+          document.getElementById('respuesta4').classList.add('activo');
+          break;
+
+        }
+ 
       }
 
      
