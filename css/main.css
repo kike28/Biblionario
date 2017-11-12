@@ -9,9 +9,7 @@ body{
 .activo{
     background: rgb(2, 173, 45);
 }
-.inactivo{
-    background: hsl(199, 18%, 40%);
-}
+
 
 /*#main{
     margin: 40px;
