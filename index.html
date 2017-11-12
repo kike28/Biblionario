@@ -83,8 +83,8 @@
                         </div>
                     </div>
                 </div>
-                <div id="Respuestaboton" class="col s12 center-align cursor" @click="revelarRespuesta()">
-                        <a class="waves-effect waves-light btn">Revelar Respuesta</a>
+                <div id="Respuestaboton" class="col s12 center-align cursor"  @click="revelarRespuesta()">
+                        <a id="btnRevelarRespuesta" class="waves-effect waves-light btn disabled">Revelar Respuesta</a>
                 </div>
             </div>
         </div>  
@@ -116,7 +116,7 @@
                         
             </div>
         </div>
-        <!-- {{$data | json}}              -->
+        {{$data | json}}             
     </div>
     
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->

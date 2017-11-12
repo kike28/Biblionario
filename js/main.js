@@ -4,7 +4,7 @@ var app = new Vue({
     data: {
       respuestas:[{'': ''},{'': ''},{'': ''},{'': ''}],
       pregunta:[],
-      indice: 0,
+      indice: 10,
       respCorrecta:false
 
     },
@@ -28,6 +28,7 @@ var app = new Vue({
         } else{
           this.respCorrecta = false
           // alert(`Te equivocaste necesitas Leer mas Biblia ${this.respCorrecta}`);
+          this.indice = resp;
           this.marcarRespuesta(resp);
         }
         
@@ -35,18 +36,29 @@ var app = new Vue({
       },
 
       revelarRespuesta: function(){
-        if(this.respCorrecta == true){
-          alert(`FELICIDADES TU RESPUESTA ${this.pregunta.respuestas[this.indice].respuesta} ES CORRECTA`)
-          
-        }else{
-          alert(`LO LAMENTO TE EQUIVOCASTE DEBES LEER MAS BIBLIA`)
+        
+          if(this.respCorrecta == true){
+            alert(`FELICIDADES TU RESPUESTA ${this.pregunta.respuestas[this.indice].respuesta} ES CORRECTA`)
+            
+          }else{
+            alert(`LO LAMENTO TE EQUIVOCASTE DEBES LEER MAS BIBLIA`)
+  
+          }
 
-        }
+        
+        
 
 
       },
 
       marcarRespuesta: function(num){
+        if(this.indice < 4){
+          document.getElementById('btnRevelarRespuesta').classList.remove('disabled');
+          
+        }else{
+          document.getElementById('btnRevelarRespuesta').classList.add('disabled');
+        }
+          
         document.getElementById('respuesta1').classList.remove('activo');
         document.getElementById('respuesta2').classList.remove('activo');
         document.getElementById('respuesta3').classList.remove('activo');
