@@ -14,33 +14,40 @@ var app = new Vue({
         this.$refs.audioElm.play();
       },
 
-      cargarPregunta: function(num){
-        this.pregunta=nivel1[num];
-        this.respuestas=nivel1[num].respuestas;
+      //Metodo que se encarga de Cargar las preguntas aleatorimente y eliminar del arreglo las que ya estan utilizadas
+      
+      cargarPregunta: function(){
+
+        aleatorio = Math.floor( Math.random() * (nivel1.length - 1)) + 1;
+        alert(aleatorio);
+
+        this.pregunta=nivel1[aleatorio];
+        this.respuestas=nivel1[aleatorio].respuestas;
+
+        nivel1.splice(aleatorio,1);
       },
 
-      seleccionRespuesta: function(resp){
+      seleccionRespuesta: function(resp, event){
         
         if(this.pregunta.respuestas[resp].correcta == true){
           this.respCorrecta = true;
-          this.indice = resp;
-          this.marcarRespuesta(resp);
-          // alert(`La respuesta es Correcta ${this.respCorrecta}`);
+          // this.indice = resp;
+          // this.marcarRespuesta(resp);
         } else{
           this.respCorrecta = false
-          // alert(`Te equivocaste necesitas Leer mas Biblia ${this.respCorrecta}`);
-          this.indice = resp;
-          this.marcarRespuesta(resp);
+          // this.indice = resp;
+          // this.marcarRespuesta(resp);
         }
-        
-
+        this.indice = resp;
+        this.marcarRespuesta(resp);
       },
 
       revelarRespuesta: function(){
         
           if(this.respCorrecta == true){
-            alert(`FELICIDADES TU RESPUESTA ${this.pregunta.respuestas[this.indice].respuesta} ES CORRECTA`)
-            
+            alert(`FELICIDADES TU RESPUESTA ${this.pregunta.respuestas[this.indice].respuesta.toUpperCase()} ES CORRECTA`)
+            this.marcarRespuesta(this.indice); // La respuesta esta marcada con este metodo la reset y deja como la primera
+            this.cargarPregunta(); 
           }else{
             alert(`LO LAMENTO TE EQUIVOCASTE DEBES LEER MAS BIBLIA`)
   
@@ -58,7 +65,7 @@ var app = new Vue({
         respuesta4 = document.getElementById('respuesta4');
         btnRevelar = document.getElementById('btnRevelarRespuesta');
 
-        // alert(Math.floor( Math.random() * (10 - 1)) + 1); Sacar Numeros enteros aleatorios
+        
 
   
         if(document.getElementById(respMarcada).classList.contains('activo')){
@@ -96,11 +103,13 @@ var app = new Vue({
           respuesta3.classList.remove('activo');
           break;
         }
-      }
+      },
     },
+
+    
    
     mounted: function () {
-      this.cargarPregunta(2);
+      this.cargarPregunta();
     }  
   
   });
