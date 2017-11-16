@@ -19,13 +19,14 @@ var app = new Vue({
       cargarPregunta: function(){
 
         aleatorio = Math.floor( Math.random() * (nivel1.length - 1)) + 1;
-        alert(aleatorio);
-
+        // alert(aleatorio);
         this.pregunta=nivel1[aleatorio];
         this.respuestas=nivel1[aleatorio].respuestas;
 
         nivel1.splice(aleatorio,1);
       },
+
+      // cargarPuntaje: function
 
       seleccionRespuesta: function(resp, event){
         
@@ -45,6 +46,8 @@ var app = new Vue({
       revelarRespuesta: function(){
         
           if(this.respCorrecta == true){
+
+
             alert(`FELICIDADES TU RESPUESTA ${this.pregunta.respuestas[this.indice].respuesta.toUpperCase()} ES CORRECTA`)
             this.marcarRespuesta(this.indice); // La respuesta esta marcada con este metodo la reset y deja como la primera
             this.cargarPregunta(); 
