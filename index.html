@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="col s12 center-align" >
-                        <button id="btnRevelarRespuesta" class="btn waves-effect waves-light center-align" disabled="true" type="button" @click="revelarRespuesta()">Revelar Respuesta
+                        <button id="btnRevelarRespuesta" class="btn waves-effect waves-light center-align"  disabled="true" type="button" @click="revelarRespuesta()">Revelar Respuesta
                                 <i class="material-icons right">send</i>
                         </button>
                 </div>
@@ -118,14 +118,40 @@
                         
             </div>
         </div>
-        {{$data | json}}             
+        {{$data | json}}    
+
+        <!-- Estructura Modal Respuesta Correcta -->
+        
+        <div id="modalRespuestaCorrecta" class="modal">
+            <div class="modal-content">
+              <h4>FELICIDADES</h4>
+              <p>Tu Respuesta es Correcta</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+            </div>
+          </div>
+          <!-- Estructura Modal Respuesta Incorrecta -->
+        
+        <div id="modalRespuestaIncorrecta" class="modal">
+            <div class="modal-content">
+              <h4>LO LAMENTO</h4>
+              <p>Debes Leer mas Biblia tu respuesta es incorrecta</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+            </div>
+          </div>
+        
+
     </div>
     
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="question.js"></script>
     <script src="https://unpkg.com/vue"></script>
     <script src="js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <!--Este es un comentario-->
     

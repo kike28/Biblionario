@@ -1,3 +1,19 @@
+// $(document).ready(function(){
+//   // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+//   $('.modal').modal();
+
+//   $('.modal').modal({
+//     dismissible: true, // Modal can be dismissed by clicking outside of the modal
+//     opacity: .5, // Opacity of modal background
+//     inDuration: 300, // Transition in duration
+//     outDuration: 200, // Transition out duration
+//     startingTop: '4%', // Starting top style attribute
+//     endingTop: '10%', // Ending top style attribute
+//     ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+//       alert("Ready");
+//       console.log(modal, trigger);
+//     }
+// });
 
 var app = new Vue({
     el: '#main',
@@ -46,15 +62,15 @@ var app = new Vue({
       revelarRespuesta: function(){
         
           if(this.respCorrecta == true){
-
-
-            alert(`FELICIDADES TU RESPUESTA ${this.pregunta.respuestas[this.indice].respuesta.toUpperCase()} ES CORRECTA`)
-            this.marcarRespuesta(this.indice); // La respuesta esta marcada con este metodo la reset y deja como la primera
-            this.cargarPregunta(); 
-          }else{
-            alert(`LO LAMENTO TE EQUIVOCASTE DEBES LEER MAS BIBLIA`)
+            // alert(`FELICIDADES TU RESPUESTA ${this.pregunta.respuestas[this.indice].respuesta.toUpperCase()} ES CORRECTA`);
+            $('#modalRespuestaCorrecta').modal('open');
   
+          }else{
+            // alert(`LO LAMENTO TE EQUIVOCASTE DEBES LEER MAS BIBLIA`);
+            $('#modalRespuestaIncorrecta').modal('open');
           }
+          this.marcarRespuesta(this.indice); // La respuesta esta marcada con este metodo la reset y deja como la primera
+          this.cargarPregunta(); 
 
         
       },
@@ -112,6 +128,24 @@ var app = new Vue({
     
    
     mounted: function () {
+
+      //cargando objeto de pantalla modal
+      $('.modal').modal({
+        dismissible: false, // Modal se puede descartar haciendo clic fuera del modal
+        opacity: .6, // Opacidad de fondo modal
+        inDuration: 500, // Transición en duración
+        outDuration: 300, // Duración de la transición
+        startingTop: '50%', // Inicio de atributo de estilo superior
+        endingTop: '30%', // Finalizando el atributo de estilo superior
+        // ready: function(modal, trigger) { // Devolución de llamada para Modal abierto. Parámetros modales y de disparo disponibles.
+        //   alert("Ready");
+        //   console.log(modal, trigger);
+        // },
+        // complete: function() { alert('Closed'); } // Devolución de llamada para cierre modal
+      }
+    ); 
+
+    //Cargando Preguntas aleatorias al inicio del juego
       this.cargarPregunta();
     }  
   
