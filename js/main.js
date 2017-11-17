@@ -1,19 +1,3 @@
-// $(document).ready(function(){
-//   // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
-//   $('.modal').modal();
-
-//   $('.modal').modal({
-//     dismissible: true, // Modal can be dismissed by clicking outside of the modal
-//     opacity: .5, // Opacity of modal background
-//     inDuration: 300, // Transition in duration
-//     outDuration: 200, // Transition out duration
-//     startingTop: '4%', // Starting top style attribute
-//     endingTop: '10%', // Ending top style attribute
-//     ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-//       alert("Ready");
-//       console.log(modal, trigger);
-//     }
-// });
 
 var app = new Vue({
     el: '#main',
@@ -22,7 +6,10 @@ var app = new Vue({
       pregunta:[],
       indice: 10,
       respCorrecta:false,
-      desactivo:true
+      desactivo:true,
+      puntaje:0,
+      nivel: 0,
+      datosArchivo:[],
 
     },
     methods: {
@@ -42,7 +29,26 @@ var app = new Vue({
         nivel1.splice(aleatorio,1);
       },
 
-      // cargarPuntaje: function
+      cargarPuntaje: function(){
+        if(this.puntaje < 30){
+          this.puntaje += 10;
+          
+        }else if(this.puntaje >= 50 && this.puntaje <= 3200 ){
+          this.puntaje += this.puntaje;
+        }else if(this.puntaje >= 12500){
+          this.puntaje += this.puntaje;
+        }else if(this.puntaje == 6400){
+          this.puntaje += 6100;
+        }else if(this.puntaje == 30){
+          this.puntaje += 20;
+        }
+        this.nivel += 1;
+
+        nivelPuntaje = 'n'+ this.nivel;
+        document.getElementById(nivelPuntaje).classList.add('active'); 
+        
+
+      },
 
       seleccionRespuesta: function(resp, event){
         
@@ -63,11 +69,26 @@ var app = new Vue({
         
           if(this.respCorrecta == true){
             // alert(`FELICIDADES TU RESPUESTA ${this.pregunta.respuestas[this.indice].respuesta.toUpperCase()} ES CORRECTA`);
+            this.cargarPuntaje();
             $('#modalRespuestaCorrecta').modal('open');
   
           }else{
             // alert(`LO LAMENTO TE EQUIVOCASTE DEBES LEER MAS BIBLIA`);
+            
+            // Clonamos el objeto para que sea uno nuevo Utilizando el truco de JSON Tranformado el bjeto anterior en cadena y luego lo reconvertimos en objeto
+            nivel1 = JSON.parse(JSON.stringify(backupData));
             $('#modalRespuestaIncorrecta').modal('open');
+            while(this.nivel > 0){
+              nivelPuntaje = 'n'+ this.nivel;
+              // alert(nivelPuntaje);
+              document.getElementById(nivelPuntaje).classList.remove('active');
+              this.nivel-=1;
+              nivelPuntaje='';
+            }
+            // this.nivel=0;
+            this.puntaje =0;
+
+
           }
           this.marcarRespuesta(this.indice); // La respuesta esta marcada con este metodo la reset y deja como la primera
           this.cargarPregunta(); 
@@ -136,17 +157,20 @@ var app = new Vue({
         inDuration: 500, // Transición en duración
         outDuration: 300, // Duración de la transición
         startingTop: '50%', // Inicio de atributo de estilo superior
-        endingTop: '30%', // Finalizando el atributo de estilo superior
+        endingTop: '15%', // Finalizando el atributo de estilo superior
         // ready: function(modal, trigger) { // Devolución de llamada para Modal abierto. Parámetros modales y de disparo disponibles.
         //   alert("Ready");
         //   console.log(modal, trigger);
         // },
-        // complete: function() { alert('Closed'); } // Devolución de llamada para cierre modal
+        // complete: function() { 
+        // } // Devolución de llamada para cierre modal
       }
     ); 
 
     //Cargando Preguntas aleatorias al inicio del juego
+      
       this.cargarPregunta();
+      
     }  
   
   });

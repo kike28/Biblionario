@@ -279,7 +279,8 @@ nivel1 = [
     "pista": "Puedes utilizar la Biblia para buscar esta respuesta en Exodo Capítulo 20.",
     "utilizada": false
   }
-]
+];
+let backupData = JSON.parse(JSON.stringify(nivel1));  
 
 // http://jsonviewer.stack.hu/
 //http://jsoneditoronline.org/

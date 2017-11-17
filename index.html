@@ -10,23 +10,6 @@
     
 </head>
 <body>
-
-       <!--
-        <div id="app">
-                <button v-on:click="play" type="button">Click Me to Play Sound</button>
-                <audio ref="audioElm" src="mp3/main.mp3"></audio>
-
-
-
-                <div  id="limpiarsesion"  class="col s12 center-align">
-                        <a href="#" v-on:click="play" class="waves-effect waves-light btn ">limpiar sesion</a>
-                        <audio ref="audioElm" src="mp3/main.mp3"></audio>
-                </div>
-
-              </div>
-
-              https://es-vuejs.github.io/vuejs.org/v2/guide/installation.html
-            -->
     <div id="main" class="row container">
         <div id="game" class="col s10">
             <div id="encabezado" class="row">
@@ -93,21 +76,21 @@
         <div id="aside" class="col s2">
             <div id="puntaje" class="row">
                 <ul class="collection">
-                    <li class="collection-item center-align">100.000</li>
-                    <li class="collection-item center-align">50.000</li>
-                    <li class="collection-item center-align">25.000</li>
-                    <li class="collection-item center-align">12.500</li>
-                    <li class="collection-item center-align">6.400</li>
-                    <li class="collection-item center-align">3.200</li>
-                    <li class="collection-item center-align">1.600</li>
-                    <li class="collection-item center-align">800</li>
-                    <li class="collection-item center-align">400</li>
-                    <li class="collection-item center-align">200</li>
-                    <li class="collection-item center-align">100</li>
-                    <li class="collection-item center-align">50</li>
-                    <li class="collection-item center-align">30</li>
-                    <li class="collection-item center-align">20</li> 
-                    <li class="collection-item center-align">10</li> 
+                    <li id="n15" class="collection-item center-align">100.000</li>
+                    <li id="n14" class="collection-item center-align">50.000</li>
+                    <li id="n13" class="collection-item center-align">25.000</li>
+                    <li id="n12" class="collection-item center-align">12.500</li>
+                    <li id="n11" class="collection-item center-align">6.400</li>
+                    <li id="n10" class="collection-item center-align">3.200</li>
+                    <li id="n9" class="collection-item center-align">1.600</li>
+                    <li id="n8" class="collection-item center-align">800</li>
+                    <li id="n7" class="collection-item center-align">400</li>
+                    <li id="n6" class="collection-item center-align">200</li>
+                    <li id="n5" class="collection-item center-align">100</li>
+                    <li id="n4"  class="collection-item center-align">50</li>
+                    <li id="n3" class="collection-item center-align">30</li>
+                    <li id="n2" class="collection-item center-align">20</li> 
+                    <li id="n1" class="collection-item center-align">10</li> 
                 </ul>  
             </div>    
             <div class="row">
@@ -124,6 +107,8 @@
         
         <div id="modalRespuestaCorrecta" class="modal">
             <div class="modal-content">
+                <!-- icono cortesia de https://www.flaticon.es/icono-gratis/happy_136258#term=cara%20feliz&page=1&position=16 -->
+              <img  class="responsive-img imgModalRepuesta" src="/img/feliz.svg">
               <h4>FELICIDADES</h4>
               <p>Tu Respuesta es Correcta</p>
             </div>
@@ -135,6 +120,8 @@
         
         <div id="modalRespuestaIncorrecta" class="modal">
             <div class="modal-content">
+                <!-- icono cortesia de https://www.flaticon.es/icono-gratis/crying_136295#term=cara%20triste&page=1&position=10 -->
+                    <img class="responsive-img imgModalRepuesta" src="/img/llanto.svg"> 
               <h4>LO LAMENTO</h4>
               <p>Debes Leer mas Biblia tu respuesta es incorrecta</p>
             </div>
