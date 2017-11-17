@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="col s6">
-                    <div @click="seleccionRespuesta(0, $event)" class="card blue-grey darken-1 hoverable cursor">
+                    <div id="tarjeta1" @click="seleccionRespuesta(0, $event)" class="card blue-grey darken-1 hoverable cursor">
                         <div id="respuesta1" class="card-content white-text">
                             <span class="card-title">Respuesta A</span>
                             <p> {{ respuestas[0].respuesta }} </p>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col s6">
-                    <div @click="seleccionRespuesta(1)" class="card blue-grey darken-1 hoverable cursor">
+                    <div id="tarjeta2" @click="seleccionRespuesta(1)" class="card blue-grey darken-1 hoverable cursor">
                         <div id="respuesta2" class="card-content white-text">
                             <span class="card-title">Respuesta B</span>
                             <p> {{ respuestas[1].respuesta }} </p>
@@ -51,14 +51,14 @@
                     </div>
                 </div>
                 <div class="col s6">
-                    <div @click="seleccionRespuesta(2)" class="card blue-grey darken-1 hoverable cursor">
+                    <div id="tarjeta3" @click="seleccionRespuesta(2)" class="card blue-grey darken-1 hoverable cursor">
                         <div id="respuesta3" class="card-content white-text">
                             <span class="card-title">Respuesta C</span>
                             <p> {{ respuestas[2].respuesta }} </p>
                         </div>
                     </div>
                 </div>
-                <div class="col s6">
+                <div id="tarjeta4" class="col s6">
                     <div @click="seleccionRespuesta(3)" class="card blue-grey darken-1 hoverable cursor">
                         <div id="respuesta4" class="card-content white-text">
                             <span class="card-title">Respuesta D</span>

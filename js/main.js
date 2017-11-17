@@ -9,7 +9,6 @@ var app = new Vue({
       desactivo:true,
       puntaje:0,
       nivel: 0,
-      datosArchivo:[],
 
     },
     methods: {
@@ -51,18 +50,23 @@ var app = new Vue({
       },
 
       seleccionRespuesta: function(resp, event){
-        
-        if(this.pregunta.respuestas[resp].correcta == true){
-          this.respCorrecta = true;
-          // this.indice = resp;
-          // this.marcarRespuesta(resp);
-        } else{
-          this.respCorrecta = false
-          // this.indice = resp;
-          // this.marcarRespuesta(resp);
+        respuestaMarcada='tarjeta'+(resp+1);
+        alert(respuestaMarcada);
+        if (document.getElementById(respuestaMarcada).classList.contains('cursor')){
+          if(this.pregunta.respuestas[resp].correcta == true){
+            this.respCorrecta = true;
+            // this.indice = resp;
+            // this.marcarRespuesta(resp);
+          } else{
+            this.respCorrecta = false
+            // this.indice = resp;
+            // this.marcarRespuesta(resp);
+          }
+          this.indice = resp;
+          this.marcarRespuesta(resp);
+
         }
-        this.indice = resp;
-        this.marcarRespuesta(resp);
+        
       },
 
       revelarRespuesta: function(){
