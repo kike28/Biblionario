@@ -3,6 +3,7 @@ var app = new Vue({
     el: '#main',
     data: {
       respuestas:[{'': ''},{'': ''},{'': ''},{'': ''}],
+      //respuestas: [{}],
       pregunta:[],
       indice: 10,
       respCorrecta:false,
@@ -13,7 +14,7 @@ var app = new Vue({
     },
     methods: {
       play: function(event) {
-        this.$refs.audioElm.play();
+        app.$refs.audioElm.play();
       },
 
       //Metodo que se encarga de Cargar las preguntas aleatorimente y eliminar del arreglo las que ya estan utilizadas
@@ -49,9 +50,8 @@ var app = new Vue({
 
       },
 
-      seleccionRespuesta: function(resp, event){
+      seleccionRespuesta: function(resp){
         respuestaMarcada='tarjeta'+(resp+1);
-        alert(respuestaMarcada);
         if (document.getElementById(respuestaMarcada).classList.contains('cursor')){
           if(this.pregunta.respuestas[resp].correcta == true){
             this.respCorrecta = true;
@@ -184,5 +184,44 @@ var app = new Vue({
 //     alert(mydata[0].id);
 //     alert(mydata[0].question);
 //   };
+
+
+/*
+Componente de countador Circular para tiempo de los comodines
+
+<body>
+    <div id="divProgress"></div>
+    <script>
+        $(document).ready(function () {
+            $("#divProgress").circularloader({
+                backgroundColor: "#00BFFF",//background colour of inner circle
+                fontColor: "#000000",//font color of progress text
+                fontSize: "60px",//font size of progress text
+                radius: 80,//radius of circle
+                progressBarBackground: "#90EE90",//background colour of circular progress Bar
+                progressBarColor: "#aaaaaa",//colour of circular progress bar
+                progressBarWidth: 25,//progress bar width
+                progressPercent: 0,//progress percentage out of 100
+                progressValue: 0,//diplay this value instead of percentage
+                showText: true,//show progress text or not
+                title: "30 Segundos para la respuesta",//show header title for the progress bar
+            });
+            var sec = 30;
+            var timer = setInterval(function () {
+                $("#divProgress").circularloader({
+                    progressValue:sec,
+                    progressPercent: (sec/30*100)
+                });
+                sec--;
+				if(sec < 0)
+					sec = 30;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
+
+
+*/ 
 
   
