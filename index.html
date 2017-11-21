@@ -20,7 +20,7 @@
                     <div id="comodines" class="row">
                         <div id="retirarse" class="col s3"><i class="medium material-icons">thumb_down</i></div>
                         <div id="biblia" class="col s3"><i class="medium material-icons">library_books</i></div>
-                        <div id="publico" class="col s3"><i class="medium material-icons">public</i></div>
+                        <div id="publico" @click="preguntaPublico" class="col s3 cursor"><i class="medium material-icons">public</i></div>
                         <div id="cincuenta" class="col s3"><i class="medium material-icons">toc</i></div>
                     </div>
                 </div>
@@ -129,6 +129,17 @@
               <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
             </div>
           </div>
+
+          <!-- Estructura Modal de Pregunta Publico-->
+
+          <div id="modalPreguntaPublico" class="modal">
+            <div class="modal-content">
+                <div id="divProgress"> </div>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+            </div>
+          </div>
         
 
     </div>
@@ -138,6 +149,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascript" src="question.js"></script>
     <script src="https://unpkg.com/vue"></script>
+    <script src="js/CircularLoader-v1.3.js"></script>
     <script src="js/main.js"></script>
 
     <!--Este es un comentario-->
