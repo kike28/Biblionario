@@ -150,18 +150,24 @@ var app = new Vue({
       },
       preguntaPublico: function(){
         $('#modalPreguntaPublico').modal('open');
-        var sec = 30;
+        var sec = 5;
         if (sec != 0){
           var timer = setInterval(function () {
               $("#divProgress").circularloader({
                   progressValue:sec,
-                  progressPercent: (sec/30*100)
+                  progressPercent: (sec/5*100)
               });
               sec--;
-              if(sec < 0)
-                sec = 30;
+              if(sec < 0){
+                clearInterval(timer);
+                setTimeout(function(){ $('#modalPreguntaPublico').modal('close'); }, sec+2000);
+              }
           }, 1000);
+
+          
       }
+     
+      
 
 
 
@@ -221,40 +227,10 @@ var app = new Vue({
 
 
 /*
-Componente de countador Circular para tiempo de los comodines
-
-<body>
-    <div id="divProgress"></div>
-    <script>
-        $(document).ready(function () {
-            $("#divProgress").circularloader({
-                backgroundColor: "#00BFFF",//background colour of inner circle
-                fontColor: "#000000",//font color of progress text
-                fontSize: "60px",//font size of progress text
-                radius: 80,//radius of circle
-                progressBarBackground: "#90EE90",//background colour of circular progress Bar
-                progressBarColor: "#aaaaaa",//colour of circular progress bar
-                progressBarWidth: 25,//progress bar width
-                progressPercent: 0,//progress percentage out of 100
-                progressValue: 0,//diplay this value instead of percentage
-                showText: true,//show progress text or not
-                title: "30 Segundos para la respuesta",//show header title for the progress bar
-            });
-            var sec = 30;
-            var timer = setInterval(function () {
-                $("#divProgress").circularloader({
-                    progressValue:sec,
-                    progressPercent: (sec/30*100)
-                });
-                sec--;
-				if(sec < 0)
-					sec = 30;
-            }, 1000);
-        });
-    </script>
-</body>
-</html>
-
+Comodin 50%
+Comodin Publico
+Comodin Biblico
+Plantarse
 
 */ 
 
