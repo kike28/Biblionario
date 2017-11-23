@@ -1,17 +1,17 @@
 Vue.component('cronometro-component',{
     template: `
     <div>
-      <div class="CountDownTimer" v-bind:data-timer="counter" style="width: 1000px; height: 250px;">{{ counter }}</div>
-      <button @click="iniciar">Start Timer</button>
+      <div class="CountDownTimer" :data-timer=tiempo style="width: 1000px; height: 250px;">{{ tiempo }}</div>
+      <button @click="iniciar" >INICAR </button>
       <button @click="parar">Stop Timer</button>
     </div> `,
   
     data: function () {
       return {
-        counter: 5
+        counter: 5,
       }
     },
-    // props: ['tiempo'],
+    props: ['tiempo'],
   
     methods:{
   
