@@ -1,3 +1,48 @@
+//Componente que crea un cronometro al cual se le puede pasar el tiempo de ejecución y el nombre del mismo
+Vue.component('cronometro-component',{
+  template: `
+    <div :class=nombre :data-timer=tiempo style="width: 1000px; height: 250px;"></div>
+
+  `,
+
+      // <button @click="iniciarCronometro" >INICAR </button>
+    // <button @click="pararCronometro">Stop Timer</button>
+  data: function () {
+    return {
+
+    }
+  },
+  props: ['tiempo', 'nombre'],
+  methods:{
+    iniciarCronometro: function(){
+        $("."+this.nombre).TimeCircles().start();
+    },
+    pararCronometro: function(){
+        $("."+this.nombre).TimeCircles().stop();
+    }
+  },
+  mounted: function(){
+    $("."+this.nombre).TimeCircles({ 
+      "animation": "smooth",
+      "bg_width": 0.3,
+      "fg_width": 0.023333333333333334,
+      "circle_bg_color": "#90989F",
+      "circle_bg_color": "#099", 
+      "count_past_zero": false, 
+      "start": false, 
+      "time": { 
+          "Days": { "show": false }, 
+          "Hours": { "show": false }, 
+          "Minutes": { "show": false }, 
+          "Seconds": {
+              "text": "Segundos",
+              "color": "#40484F",
+              "show": true
+          }
+      }
+  });
+  }
+})
 
 var app = new Vue({
     el: '#main',
@@ -150,27 +195,6 @@ var app = new Vue({
       },
       preguntaPublico: function(){
         $('#modalPreguntaPublico').modal('open');
-        var sec = 5;
-        if (sec != 0){
-          var timer = setInterval(function () {
-              $("#divProgress").circularloader({
-                  progressValue:sec,
-                  progressPercent: (sec/5*100)
-              });
-              sec--;
-              if(sec < 0){
-                clearInterval(timer);
-                setTimeout(function(){ $('#modalPreguntaPublico').modal('close'); }, sec+2000);
-              }
-          }, 1000);
-
-          
-      }
-     
-      
-
-
-
       },
     },
 
@@ -194,23 +218,6 @@ var app = new Vue({
         // } // Devolución de llamada para cierre modal
       }
     ); 
-
-    //cargar Temporizador de Pista Biblica
-
-    $("#divProgress").circularloader({
-      backgroundColor: "#00BFFF",//background colour of inner circle
-      fontColor: "#000000",//font color of progress text
-      fontSize: "60px",//font size of progress text
-      radius: 80,//radius of circle
-      progressBarBackground: "#90EE90",//background colour of circular progress Bar
-      progressBarColor: "#aaaaaa",//colour of circular progress bar
-      progressBarWidth: 25,//progress bar width
-      progressPercent: 0,//progress percentage out of 100
-      progressValue: 0,//diplay this value instead of percentage
-      showText: true,//show progress text or not
-      title: "30 Segundos para la respuesta",//show header title for the progress bar
-    });
-
     //Cargando Preguntas aleatorias al inicio del juego
       
       this.cargarPregunta();
