@@ -1,39 +1,27 @@
+//Componente que crea un cronometro al cual se le puede pasar el tiempo de ejecución y el nombre del mismo
 Vue.component('cronometro-component',{
     template: `
     <div>
-      <div class="CountDownTimer" :data-timer=tiempo style="width: 1000px; height: 250px;">{{ tiempo }}</div>
-      <button @click="iniciar" >INICAR </button>
-      <button @click="parar">Stop Timer</button>
+      <div :class=nombre :data-timer=tiempo style="width: 1000px; height: 250px;"></div>
+      <button @click="iniciarCronometro" >INICAR </button>
+      <button @click="pararCronometro">Stop Timer</button>
     </div> `,
-  
     data: function () {
       return {
-        counter: 5,
+ 
       }
     },
-    props: ['tiempo'],
-  
+    props: ['tiempo', 'nombre'],
     methods:{
-  
-      iniciar: function(){
-          $(".CountDownTimer").TimeCircles().start();
-    
-      
+      iniciarCronometro: function(){
+          $("."+this.nombre).TimeCircles().start();
       },
-  
-      parar: function(){
-  
-        
-          $(".CountDownTimer").TimeCircles().stop();
-  
-  
+      pararCronometro: function(){
+          $("."+this.nombre).TimeCircles().stop();
       }
-  
     },
-    
-    
     mounted: function(){
-      $(".CountDownTimer").TimeCircles({ 
+      $("."+this.nombre).TimeCircles({ 
         "animation": "smooth",
         "bg_width": 0.3,
         "fg_width": 0.023333333333333334,
@@ -52,12 +40,14 @@ Vue.component('cronometro-component',{
             }
         }
     });
-    
     }
   })
-  
-  
-  
+
+  //como utilizar los datos de props dentro de cualquier logica del componente
+    //https://forum.vuejs.org/t/update-data-when-prop-changes-data-derived-from-prop/1517/
+
+    //Como utilizar eventos para comunicarse directamente con el componente
+    //http://www.jaimeolmo.com/2017/01/componentes-vue-js-espanol/
   var app = new Vue({
       el: '#main', 
       
