@@ -6,6 +6,7 @@
     <title>JB</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
    <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/TimeCircles.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
     <link rel="stylesheet" href="css/materialize.css">
     
@@ -131,16 +132,26 @@
             </div>
           </div>
 
-          <!-- Estructura Modal de Pregunta Publico-->
+          <!-- Estructura Modal Comodin Publico-->
 
-          <div id="modalPreguntaPublico" class="modal row">
-              <div class="modal-content col s12 center">
-                    <cronometro-component tiempo=20 nombre=prueba2></cronometro-component>
-                </div>
-           
-            <div class="modal-footer">
-              <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
-            </div>
+          <div id="modalComodinPublico" class="modal">
+            <div class="modal-content">
+                <div class="prueba1" :data-timer=10 style="height: 250px; text-align:center;"></div>
+                <div class="modal-footer">
+                <a href="#!"  @click="pararCronometro" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+              </div>
+                </div> 
+          </div>
+
+          <!-- Estructura Modal de Comodin Biblico-->
+
+          <div id="modalComodinBiblico" class="modal">
+            <div class="modal-content">
+                <div class="prueba1" :data-timer=10 style="height: 250px; text-align:center;"></div>
+                <div class="modal-footer">
+                <a href="#!"  @click="pararCronometro" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+              </div>
+                </div> 
           </div>
         
 

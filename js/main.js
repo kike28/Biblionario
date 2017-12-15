@@ -1,48 +1,49 @@
 //Componente que crea un cronometro al cual se le puede pasar el tiempo de ejecución y el nombre del mismo
-Vue.component('cronometro-component',{
-  template: `
-    <div :class=nombre :data-timer=tiempo style="width: 1000px; height: 250px;"></div>
+//Estados de los componentes en vuejs bien explicado.
+//https://elabismodenull.wordpress.com/2017/05/05/vuejs-el-ciclo-de-vida-de-un-componente/
+// Vue.component('cronometro-component',{
+//   template: `
+//   <div class="modal-content">
+//     <div :id=nombre :data-timer=tiempo style="height: 250px; text-align:center;"></div>
+//     <div class="modal-footer">
+//     <a href="#!"  @click="pararCronometro" class="modal-action modal-close waves-effect waves-green btn-flat">Aceptar</a>
+//   </div>
+//     </div> 
+//     `
+//     ,
 
-  `,
+     
+//   data: function () {
+//     return {
 
-      // <button @click="iniciarCronometro" >INICAR </button>
-    // <button @click="pararCronometro">Stop Timer</button>
-  data: function () {
-    return {
+//     }
+//   },
+//   props: ['tiempo', 'nombre'],
+//   methods:{
+//     // iniciarCronometro: function(){
+//     //   alert('Hola');
+//     //    $("#"+this.nombre).TimeCircles().restart();
+//     // },
+//     // pararCronometro: function(){
+//     //     $("#"+this.nombre).TimeCircles().restart();
+//     //     $("#"+this.nombre).TimeCircles().stop();
+//     // }
+//   },
+//   mounted: function(){
+//     var ee = '#'+this.nombre;
+    
+ 
 
-    }
-  },
-  props: ['tiempo', 'nombre'],
-  methods:{
-    iniciarCronometro: function(){
-        $("."+this.nombre).TimeCircles().start();
-    },
-    pararCronometro: function(){
-        $("."+this.nombre).TimeCircles().stop();
-    }
-  },
-  mounted: function(){
-    $("."+this.nombre).TimeCircles({ 
-      "animation": "smooth",
-      "bg_width": 0.3,
-      "fg_width": 0.023333333333333334,
-      "circle_bg_color": "#90989F",
-      "circle_bg_color": "#099", 
-      "count_past_zero": false, 
-      "start": false, 
-      "time": { 
-          "Days": { "show": false }, 
-          "Hours": { "show": false }, 
-          "Minutes": { "show": false }, 
-          "Seconds": {
-              "text": "Segundos",
-              "color": "#40484F",
-              "show": true
-          }
-      }
-  });
-  }
-})
+
+
+
+
+
+    
+//   // $(ee).TimeCircles().restart();
+//   // $(ee).TimeCircles().stop();
+//   }
+// })
 
 var app = new Vue({
     el: '#main',
@@ -193,16 +194,32 @@ var app = new Vue({
           break;
         }
       },
-      preguntaPublico: function(){
-        $('#modalPreguntaPublico').modal('open');
+      comodinPublico: function(){
+        $('#modalComodinPublico').modal('open');
+        setTimeout(this.iniciarCronometro(), 1000);
       },
+
+      comodinBiblico: function(){
+        $('#modalComodinBiblico').modal('open');
+        setTimeout(this.iniciarCronometro(), 1000);
+      }, 
+
+      iniciarCronometro: function(){
+        $(".prueba1").TimeCircles().restart();
+        $(".prueba1").TimeCircles().stop();
+        setTimeout(function(){
+          $(".prueba1").TimeCircles().start();
+        }, 2000);
+      },
+      pararCronometro: function(){
+        $(".prueba1").TimeCircles().stop();
+      }
     },
 
     
    
     mounted: function () {
 
-      //cargando objeto de pantalla modal
       $('.modal').modal({
         dismissible: false, // Modal se puede descartar haciendo clic fuera del modal
         opacity: .6, // Opacidad de fondo modal
@@ -210,15 +227,34 @@ var app = new Vue({
         outDuration: 300, // Duración de la transición
         startingTop: '50%', // Inicio de atributo de estilo superior
         endingTop: '15%', // Finalizando el atributo de estilo superior
-        // ready: function(modal, trigger) { // Devolución de llamada para Modal abierto. Parámetros modales y de disparo disponibles.
-        //   alert("Ready");
-        //   console.log(modal, trigger);
-        // },
-        // complete: function() { 
-        // } // Devolución de llamada para cierre modal
-      }
-    ); 
-    //Cargando Preguntas aleatorias al inicio del juego
+        
+        ready: function(modal, trigger) { // Devolución de llamada para Modal abierto. Parámetros modales y de disparo disponibles.
+
+        },
+        complete: function() { 
+
+        } // Devolución de llamada para cierre modal
+      });
+
+      $(".prueba1").TimeCircles({ 
+        "animation": "smooth",
+        "bg_width": 0.3,
+        "fg_width": 0.023333333333333334,
+        "circle_bg_color": "#90989F",
+        "circle_bg_color": "#099", 
+        "count_past_zero": false, 
+        "start": false, 
+        "time": { 
+            "Days": { "show": false }, 
+            "Hours": { "show": false }, 
+            "Minutes": { "show": false }, 
+            "Seconds": {
+                "text": "Segundos",
+                "color": "#40484F",
+                "show": true
+            }
+        }
+    });
       
       this.cargarPregunta();
       

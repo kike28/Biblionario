@@ -399,7 +399,7 @@
             textElement.addClass('textDiv_' + key);
             textElement.css("top", Math.round(0.35 * this.data.attributes.item_size));
             textElement.css("left", Math.round(i++ * this.data.attributes.item_size));
-            textElement.css("width", this.data.attributes.item_size);
+            // textElement.css("width", this.data.attributes.item_size);
             textElement.appendTo(this.container);
 
             var headerElement = $("<h4>");

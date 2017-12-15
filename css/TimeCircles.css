@@ -14,7 +14,9 @@
  **/
 .time_circles > div {
     position: absolute;
-    text-align: center;
+    /* text-align: center; */
+    width: 100%;
+    /* background: rgb(184, 238, 35); */
 }
 
 /**
